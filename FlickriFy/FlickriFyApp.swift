@@ -22,9 +22,19 @@ struct FlickriFyApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().barStyle = .black
+    }
+
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView{
+                HomeView()
+            }
         }
     }
 }
