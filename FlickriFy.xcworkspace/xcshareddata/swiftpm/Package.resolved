@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LNPopupController",
+        "repositoryURL": "https://github.com/LeoNatan/LNPopupController.git",
+        "state": {
+          "branch": null,
+          "revision": "280b65899cf09b47c1bf43e167a6252b1ff96fe9",
+          "version": "2.10.25"
+        }
+      },
+      {
+        "package": "LNPopupUI",
+        "repositoryURL": "https://github.com/LeoNatan/LNPopupUI",
+        "state": {
+          "branch": null,
+          "revision": "1232830c00bd63c98763c3070c7367bd44bcb9b3",
+          "version": "1.2.7"
+        }
+      },
+      {
+        "package": "Lottie",
+        "repositoryURL": "https://github.com/airbnb/lottie-ios",
+        "state": {
+          "branch": null,
+          "revision": "e02e82c7c1b472e85e641a7624e99c855e21add1",
+          "version": "3.1.9"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

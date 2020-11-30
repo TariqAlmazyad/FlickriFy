@@ -1,0 +1,6 @@
+framework module Pods_FlickriFy {
+  umbrella header "Pods-FlickriFy-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>281095061629-hso5f3qfdor2k7i6vt7q8j1pshghr1g5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.281095061629-hso5f3qfdor2k7i6vt7q8j1pshghr1g5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDK7U-Us9FzR-iiL872cF9XFqnE-2b0uUc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>281095061629</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ARMobileApps.org.FlickriFy</string>
+	<key>PROJECT_ID</key>
+	<string>flickrify</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flickrify.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:281095061629:ios:dd7e40793fb429508db114</string>
+	<key>DATABASE_URL</key>
+	<string>https://flickrify.firebaseio.com</string>
+</dict>
+</plist>

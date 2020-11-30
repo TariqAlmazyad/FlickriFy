@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        LottieAnimationView(jsonFileName: .constant(.flickerLoading))
+            .frame(width: 100, height: 100)
     }
 }
 
