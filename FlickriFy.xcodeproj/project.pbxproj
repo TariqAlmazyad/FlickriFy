@@ -13,6 +13,11 @@
 		8396BDDD25754F6800788134 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8396BDDC25754F6800788134 /* Preview Assets.xcassets */; };
 		8396BDE825754F6800788134 /* FlickriFyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396BDE725754F6800788134 /* FlickriFyTests.swift */; };
 		8396BDF325754F6800788134 /* FlickriFyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396BDF225754F6800788134 /* FlickriFyUITests.swift */; };
+		8396BE092575516900788134 /* flickerLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 8396BE042575516800788134 /* flickerLoading.json */; };
+		8396BE0A2575516900788134 /* peopleWithMobilePhones.json in Resources */ = {isa = PBXBuildFile; fileRef = 8396BE052575516800788134 /* peopleWithMobilePhones.json */; };
+		8396BE0B2575516900788134 /* error404page.json in Resources */ = {isa = PBXBuildFile; fileRef = 8396BE062575516800788134 /* error404page.json */; };
+		8396BE0C2575516900788134 /* flickLogoReveal.json in Resources */ = {isa = PBXBuildFile; fileRef = 8396BE072575516800788134 /* flickLogoReveal.json */; };
+		8396BE0D2575516900788134 /* illustrationAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 8396BE082575516800788134 /* illustrationAnimation.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,11 @@
 		8396BDEE25754F6800788134 /* FlickriFyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickriFyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8396BDF225754F6800788134 /* FlickriFyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickriFyUITests.swift; sourceTree = "<group>"; };
 		8396BDF425754F6800788134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8396BE042575516800788134 /* flickerLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = flickerLoading.json; sourceTree = "<group>"; };
+		8396BE052575516800788134 /* peopleWithMobilePhones.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = peopleWithMobilePhones.json; sourceTree = "<group>"; };
+		8396BE062575516800788134 /* error404page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error404page.json; sourceTree = "<group>"; };
+		8396BE072575516800788134 /* flickLogoReveal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = flickLogoReveal.json; sourceTree = "<group>"; };
+		8396BE082575516800788134 /* illustrationAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = illustrationAnimation.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,7 @@
 			children = (
 				8396BDD525754F6500788134 /* FlickriFyApp.swift */,
 				8396BDD725754F6500788134 /* ContentView.swift */,
+				8396BE032575512700788134 /* JSON animations */,
 				8396BDD925754F6800788134 /* Assets.xcassets */,
 				8396BDDE25754F6800788134 /* Info.plist */,
 				8396BDDB25754F6800788134 /* Preview Content */,
@@ -128,6 +139,18 @@
 				8396BDF425754F6800788134 /* Info.plist */,
 			);
 			path = FlickriFyUITests;
+			sourceTree = "<group>";
+		};
+		8396BE032575512700788134 /* JSON animations */ = {
+			isa = PBXGroup;
+			children = (
+				8396BE062575516800788134 /* error404page.json */,
+				8396BE042575516800788134 /* flickerLoading.json */,
+				8396BE072575516800788134 /* flickLogoReveal.json */,
+				8396BE082575516800788134 /* illustrationAnimation.json */,
+				8396BE052575516800788134 /* peopleWithMobilePhones.json */,
+			);
+			path = "JSON animations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +257,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8396BDDD25754F6800788134 /* Preview Assets.xcassets in Resources */,
+				8396BE0D2575516900788134 /* illustrationAnimation.json in Resources */,
+				8396BE0C2575516900788134 /* flickLogoReveal.json in Resources */,
+				8396BE0A2575516900788134 /* peopleWithMobilePhones.json in Resources */,
+				8396BE0B2575516900788134 /* error404page.json in Resources */,
+				8396BE092575516900788134 /* flickerLoading.json in Resources */,
 				8396BDDA25754F6800788134 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
