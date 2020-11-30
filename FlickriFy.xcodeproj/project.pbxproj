@@ -26,6 +26,10 @@
 		8396BE362575535400788134 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8396BE352575535400788134 /* GoogleService-Info.plist */; };
 		8396BE3A25755EEB00788134 /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396BE3925755EEB00788134 /* LottieAnimationView.swift */; };
 		83CA1B472575741900E748F8 /* Utilis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B462575741900E748F8 /* Utilis.swift */; };
+		83CA1B5125758BE200E748F8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B5025758BE200E748F8 /* NetworkingManager.swift */; };
+		83CA1B552575945000E748F8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B542575945000E748F8 /* Model.swift */; };
+		83CA1B59257598D800E748F8 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B58257598D700E748F8 /* Alert.swift */; };
+		83CA1B5D25759C4900E748F8 /* PhotosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B5C25759C4900E748F8 /* PhotosListViewModel.swift */; };
 		CA2F9A05933D017FB472E8AC /* Pods_FlickriFy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D67C228FA1EC00CB13FBF23 /* Pods_FlickriFy.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +93,10 @@
 		8396BE352575535400788134 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8396BE3925755EEB00788134 /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
 		83CA1B462575741900E748F8 /* Utilis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilis.swift; sourceTree = "<group>"; };
+		83CA1B5025758BE200E748F8 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		83CA1B542575945000E748F8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		83CA1B58257598D700E748F8 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		83CA1B5C25759C4900E748F8 /* PhotosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModel.swift; sourceTree = "<group>"; };
 		D2AD9EF7BA295090F3C8C56D /* Pods-FlickriFyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickriFyTests.debug.xcconfig"; path = "Target Support Files/Pods-FlickriFyTests/Pods-FlickriFyTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +167,10 @@
 			children = (
 				8396BDD525754F6500788134 /* FlickriFyApp.swift */,
 				8396BDD725754F6500788134 /* HomeView.swift */,
+				83CA1B5025758BE200E748F8 /* NetworkingManager.swift */,
+				83CA1B5C25759C4900E748F8 /* PhotosListViewModel.swift */,
+				83CA1B58257598D700E748F8 /* Alert.swift */,
+				83CA1B542575945000E748F8 /* Model.swift */,
 				83CA1B462575741900E748F8 /* Utilis.swift */,
 				8396BE3925755EEB00788134 /* LottieAnimationView.swift */,
 				8396BE032575512700788134 /* JSON animations */,
@@ -474,9 +486,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8396BDD825754F6500788134 /* HomeView.swift in Sources */,
+				83CA1B5D25759C4900E748F8 /* PhotosListViewModel.swift in Sources */,
 				83CA1B472575741900E748F8 /* Utilis.swift in Sources */,
 				8396BE3A25755EEB00788134 /* LottieAnimationView.swift in Sources */,
+				83CA1B552575945000E748F8 /* Model.swift in Sources */,
+				83CA1B5125758BE200E748F8 /* NetworkingManager.swift in Sources */,
 				8396BDD625754F6500788134 /* FlickriFyApp.swift in Sources */,
+				83CA1B59257598D800E748F8 /* Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

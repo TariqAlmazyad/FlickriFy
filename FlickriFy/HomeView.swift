@@ -16,6 +16,8 @@ struct HomeView: View {
     @State private var filterSelected: FilterPicker = .views
     @State private var isFilterPickerVisible: Bool = false
     
+    @StateObject var viewModel = PhotosListViewModel()
+    
     var body: some View {
         ZStack {
             NavigationView{
@@ -40,6 +42,8 @@ struct HomeView: View {
                         .opacity(isFilterPickerVisible ? 1 : 0)
                 }
                 .navigationBarTitle("Discovery", displayMode: .large)
+            }.onAppear{
+                viewModel.getPhotos()
             }
         }.statusBarStyle(.lightContent)
     }
