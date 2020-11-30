@@ -17,6 +17,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     private override init() {
         super.init()
+        startUpdating()
     }
     
     func requestLocationAccess(){
@@ -36,7 +37,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
+        guard let location = locations.first else { return }
         currentLocation = location.coordinate
     }
     

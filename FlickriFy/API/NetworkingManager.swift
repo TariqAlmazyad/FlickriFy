@@ -19,12 +19,14 @@ enum NetworkError: Error {
 
 final class NetworkingManager {
     static let shared = NetworkingManager()
-  
+    
+    private let lat = LocationManager.shared.currentLocation?.latitude ?? 0.0
+    private let lon = LocationManager.shared.currentLocation?.longitude ?? 0.0
     
     private init () {}
     
     func downloadPhotos(numPhotos: Int ,completion: @escaping(Result<Photos, NetworkError>) -> Void) {
-        let baseUrl = "https://api.flickr.com/services/rest?lat=24.7136&format=json&media=photos&method=flickr.photos.search&api_key=\(api_key)&radius=20&nojsoncallback=1&per_page=\(numPhotos)&lon=46.6753&extras=url_z,date_taken,geo,tags,views"
+        let baseUrl = "https://api.flickr.com/services/rest?lat=\(lat)&format=json&media=photos&method=flickr.photos.search&api_key=\(api_key)&radius=20&nojsoncallback=1&per_page=\(numPhotos)&lon=\(lon)&extras=url_z,date_taken,geo,tags,views"
         
         guard let url = URL(string: baseUrl) else {
             completion(.failure(.invalidURL))

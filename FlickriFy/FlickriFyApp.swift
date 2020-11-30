@@ -13,6 +13,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         print("Setting up firebase")
         FirebaseApp.configure()
         Auth.auth().signInAnonymously()
+        LocationManager.shared.requestLocationAccess()
+        LocationManager.shared.startUpdating()
         return true
     }
 }
@@ -22,14 +24,11 @@ struct FlickriFyApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     init() {
-        LocationManager.shared.requestLocationAccess()
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().barStyle = .black
-        
     }
-
     
     var body: some Scene {
         WindowGroup {

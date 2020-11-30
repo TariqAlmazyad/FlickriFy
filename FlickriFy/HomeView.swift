@@ -10,11 +10,6 @@ import Firebase
 
 struct HomeView: View {
     
-    @State private var photosSelection: Int = 100
-    @State private var isPhotoPickerVisible: Bool = false
-    
-    @State private var filterSelected: FilterPicker = .views
-    @State private var isFilterPickerVisible: Bool = false
     
     @StateObject var viewModel = PhotosListViewModel()
     
@@ -25,30 +20,53 @@ struct HomeView: View {
                     Color(#colorLiteral(red: 0.1138496622, green: 0.1236990467, blue: 0.1547537446, alpha: 1))
                         .ignoresSafeArea()
                     ScrollView {
-                        PhotosConfigureView(isPhotoPickerVisible: $isPhotoPickerVisible,
-                                            selection: $photosSelection,
-                                            isFilterPickerVisible: $isFilterPickerVisible,
-                                            selectedFilter: $filterSelected)
+                        PhotosConfigureView(isPhotoPickerVisible: $viewModel.isPhotoPickerVisible,
+                                            selection: $viewModel.photosSelection,
+                                            isFilterPickerVisible: $viewModel.isFilterPickerVisible,
+                                            selectedFilter: $viewModel.filterSelected)
                         
-                    }.blur(radius: isPhotoPickerVisible || isFilterPickerVisible ? 20 : 0)
-                    //                LottieAnimationView(jsonFileName: .constant(.flickerLoading))
-                    //                    .frame(width: 100, height: 100)
+                        if viewModel.isLoading {
+                            VStack {
+                                LottieAnimationView(jsonFileName: .constant(.flickerLoading))
+                                    .frame(width: 100, height: 100)
+                                Text("Please wait")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 24, weight: .semibold, design: .rounded))
+                                    .padding(.top)
+                            }
+                        } else {
+                            VStack{
+                                HStack {
+                                    Spacer()
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .frame(width: 200, height: 200)
+                                    Spacer()
+                                }
+                            }
+                        }// end if else
+                        
+                    }// end scrollView
+                    .blur(radius: viewModel.isPhotoPickerVisible || viewModel.isFilterPickerVisible ? 20 : 0)
                     
-                    PhotosPickerView(selection: $photosSelection,
-                                     isPickerVisible: $isPhotoPickerVisible, completion: {
-                                        viewModel.getPhotos(numPhotos: photosSelection)
+                    .onAppear{
+                        viewModel.getPhotos(numPhotos: viewModel.photosSelection)
+                    }
+                    
+                    PhotosPickerView(selection: $viewModel.photosSelection,
+                                     isPickerVisible: $viewModel.isPhotoPickerVisible, completion: {
+                                        viewModel.getPhotos(numPhotos: viewModel.photosSelection)
                                      })
-                        .opacity(isPhotoPickerVisible ? 1 : 0)
-                    FilterPickerView(selectedFilter: $filterSelected,
-                                     isPickerVisible: $isFilterPickerVisible, completion: {
-                                        viewModel.getPhotos(numPhotos: photosSelection)
+                        .opacity(viewModel.isPhotoPickerVisible ? 1 : 0)
+                    FilterPickerView(selectedFilter: $viewModel.filterSelected,
+                                     isPickerVisible: $viewModel.isFilterPickerVisible, completion: {
+                                        viewModel.getPhotos(numPhotos: viewModel.photosSelection)
                                      })
-                        .opacity(isFilterPickerVisible ? 1 : 0)
-                }
+                        .opacity(viewModel.isFilterPickerVisible ? 1 : 0)
+                    
+                }// end ZStack
                 .navigationBarTitle("Discovery", displayMode: .large)
-            }.onAppear{
-                viewModel.getPhotos(numPhotos: photosSelection)
             }
+            
         }.statusBarStyle(.lightContent)
     }
 }
