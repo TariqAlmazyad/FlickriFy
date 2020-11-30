@@ -13,12 +13,14 @@ final class PhotosListViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published  var selectedPhoto: Photos?
     
-    func getPhotos(){
+
+    func getPhotos(numPhotos: Int){
         isLoading = true
-        NetworkingManager.shared.downloadPhotos { [weak self] result in
+        NetworkingManager.shared.downloadPhotos(numPhotos: numPhotos) { [weak self] result in
             switch result {
             case .success( let photos):
                 print("Download is success \(photos)")
+                print("Total photos \(photos.photos.photo.count)")
                 self?.photos = photos
                 
             case .failure( let error):

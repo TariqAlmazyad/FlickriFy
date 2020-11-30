@@ -10,7 +10,7 @@ import Firebase
 
 struct HomeView: View {
     
-    @State private var photosSelection: Int = 0
+    @State private var photosSelection: Int = 100
     @State private var isPhotoPickerVisible: Bool = false
     
     @State private var filterSelected: FilterPicker = .views
@@ -35,15 +35,19 @@ struct HomeView: View {
                     //                    .frame(width: 100, height: 100)
                     
                     PhotosPickerView(selection: $photosSelection,
-                                     isPickerVisible: $isPhotoPickerVisible)
+                                     isPickerVisible: $isPhotoPickerVisible, completion: {
+                                        viewModel.getPhotos(numPhotos: photosSelection)
+                                     })
                         .opacity(isPhotoPickerVisible ? 1 : 0)
                     FilterPickerView(selectedFilter: $filterSelected,
-                                     isPickerVisible: $isFilterPickerVisible)
+                                     isPickerVisible: $isFilterPickerVisible, completion: {
+                                        viewModel.getPhotos(numPhotos: photosSelection)
+                                     })
                         .opacity(isFilterPickerVisible ? 1 : 0)
                 }
                 .navigationBarTitle("Discovery", displayMode: .large)
             }.onAppear{
-                viewModel.getPhotos()
+                viewModel.getPhotos(numPhotos: photosSelection)
             }
         }.statusBarStyle(.lightContent)
     }
@@ -58,12 +62,14 @@ struct ContentView_Previews: PreviewProvider {
 struct PhotosPickerView: View {
     @Binding var selection: Int
     @Binding var isPickerVisible: Bool
+    var completion: () -> Void
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .topTrailing) {
                 Button(action: {
                     withAnimation{
                         isPickerVisible.toggle()
+                        completion()
                     }
                 }, label: {
                     Text("Save change")
@@ -71,7 +77,7 @@ struct PhotosPickerView: View {
                 }).padding()
                 
                 Picker("Number of photos", selection: $selection) {
-                    ForEach(1 ..< 1000) { num in
+                    ForEach(0..<1000) { num in
                         Text("\(num) \(num == 1 ? "photo" : "photos")")
                             .foregroundColor(Color(.lightGray))
                     }
@@ -85,12 +91,14 @@ struct PhotosPickerView: View {
 struct FilterPickerView: View {
     @Binding var selectedFilter: FilterPicker
     @Binding var isPickerVisible: Bool
+    var completion : () -> Void
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .topTrailing) {
                 Button(action: {
                     withAnimation{
                         isPickerVisible.toggle()
+                        completion()
                     }
                 }, label: {
                     Text("Save change")
@@ -124,12 +132,11 @@ struct PhotosConfigureView: View {
     var body: some View {
         HStack{
             Spacer()
-            
             Button(action: { withAnimation{
                 isPhotoPickerVisible.toggle()
             }}, label: {
                 HStack {
-                    Text("\(selection + 1) \(selection == 1 ? "photo" : "photos")")
+                    Text("\(selection) \(selection == 1 ? "photo" : "photos")")
                     Image(systemName: "chevron.down")
                     
                 }
