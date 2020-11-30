@@ -21,12 +21,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct FlickriFyApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
     init() {
+        LocationManager.shared.requestLocationAccess()
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().barStyle = .black
+        
     }
 
     
