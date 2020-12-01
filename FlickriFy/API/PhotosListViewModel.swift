@@ -17,7 +17,13 @@ final class PhotosListViewModel: ObservableObject{
     @Published var filterSelected: FilterPicker = .views
     @Published var isFilterPickerVisible = false
     
-    
+    var filteredPhotos: [Photo] {
+        if filterSelected == .postedDate {
+            return photos?.photos.photo.sorted{ $0.datetaken > $1.datetaken} ?? []
+        } else {
+            return   photos?.photos.photo.sorted{ Int($0.views) ?? 0 > Int($1.views) ?? 0} ?? []
+        }
+    }
     
     func getPhotos(numPhotos: Int){
         self.isLoading = true

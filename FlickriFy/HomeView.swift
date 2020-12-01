@@ -42,7 +42,7 @@ struct HomeView: View {
                         } else {
                             VStack{
                                 Spacer()
-                                ForEach(viewModel.photos?.photos.photo ?? [], id:\.self) { photo in
+                                ForEach(viewModel.filteredPhotos, id:\.self) { photo in
                                     PhotoCellView(photo: photo)
                                         .padding(.vertical, 12)
                                 }
@@ -68,13 +68,20 @@ struct HomeView: View {
                 }// end ZStack
                 .navigationBarTitle("FlickrFy", displayMode: .large)
             }
+         
             
         }.statusBarStyle(.lightContent)
+        .alert(item: $viewModel.alertItem, content: { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
+        })
         .onAppear{
             viewModel.getPhotos(numPhotos: viewModel.photosSelection)
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
