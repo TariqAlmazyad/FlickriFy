@@ -13,6 +13,11 @@ struct HomeView: View {
     
     @StateObject var viewModel = PhotosListViewModel()
     
+    var isPickerVisible: Bool {
+        return viewModel.isPhotoPickerVisible
+            || viewModel.isFilterPickerVisible
+    }
+    
     var body: some View {
         ZStack {
             NavigationView{
@@ -47,8 +52,8 @@ struct HomeView: View {
                         }// end if else
                         
                     }// end scrollView
-                    .blur(radius: viewModel.isPhotoPickerVisible || viewModel.isFilterPickerVisible ? 20 : 0)
-                    .disabled(viewModel.isPhotoPickerVisible || viewModel.isFilterPickerVisible ? true : false)
+                    .blur(radius: isPickerVisible ? 20 : 0)
+                    .disabled(isPickerVisible ? true : false)
                     
                     PhotosPickerView(selection: $viewModel.photosSelection,
                                      isPickerVisible: $viewModel.isPhotoPickerVisible, completion: {
