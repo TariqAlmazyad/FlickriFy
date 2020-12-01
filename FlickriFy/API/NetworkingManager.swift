@@ -25,6 +25,10 @@ final class NetworkingManager {
     
     private init () {}
     
+    /// Make API call with number of desired photos
+    /// - Parameters:
+    ///   - numPhotos: total displayed photos in view
+    ///   - completion: once the request finishes, it escapes with result
     func downloadPhotos(numPhotos: Int ,completion: @escaping(Result<Photos, NetworkError>) -> Void) {
         let baseUrl = "https://api.flickr.com/services/rest?lat=\(lat)&format=json&media=photos&method=flickr.photos.search&api_key=\(api_key)&radius=20&nojsoncallback=1&per_page=\(numPhotos)&lon=\(lon)&extras=url_z,date_taken,geo,tags,views"
         

@@ -10,13 +10,7 @@ import Firebase
 
 struct HomeView: View {
     
-    
     @StateObject var viewModel = PhotosListViewModel()
-    
-    var isPickerVisible: Bool {
-        return viewModel.isPhotoPickerVisible
-            || viewModel.isFilterPickerVisible
-    }
     
     var body: some View {
         ZStack {
@@ -26,7 +20,7 @@ struct HomeView: View {
                         .ignoresSafeArea()
                     ScrollView {
                         PhotosConfigureView(isPhotoPickerVisible: $viewModel.isPhotoPickerVisible,
-                                            selection: $viewModel.photosSelection,
+                                            selection: $viewModel.numOfSelectedPhotos,
                                             isFilterPickerVisible: $viewModel.isFilterPickerVisible,
                                             selectedFilter: $viewModel.filterSelected)
                         
@@ -34,7 +28,7 @@ struct HomeView: View {
                             VStack {
                                 LottieAnimationView(jsonFileName: .constant(.flickerLoading))
                                     .frame(width: 100, height: 100)
-                                Text("Please wait")
+                                Text("Please wait...")
                                     .foregroundColor(.white)
                                     .font(.system(size: 24, weight: .semibold, design: .rounded))
                                     .padding(.top)
@@ -51,22 +45,23 @@ struct HomeView: View {
                         }// end if else
                         
                     }// end scrollView
-                    .blur(radius: isPickerVisible ? 20 : 0)
-                    .disabled(isPickerVisible ? true : false)
+                    .navigationBarTitle("FlickrFy", displayMode: .inline)
+                    .blur(radius: viewModel.isPickerVisible ? 20 : 0)
+                    .disabled(viewModel.isPickerVisible ? true : false)
                     
-                    PhotosPickerView(selection: $viewModel.photosSelection,
+                    PhotosPickerView(selection: $viewModel.numOfSelectedPhotos,
                                      isPickerVisible: $viewModel.isPhotoPickerVisible, completion: {
-                                        viewModel.getPhotos(numPhotos: viewModel.photosSelection)
+                                        viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
                                      })
                         .opacity(viewModel.isPhotoPickerVisible ? 1 : 0)
                     FilterPickerView(selectedFilter: $viewModel.filterSelected,
                                      isPickerVisible: $viewModel.isFilterPickerVisible, completion: {
-                                        viewModel.getPhotos(numPhotos: viewModel.photosSelection)
+                                        viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
                                      })
                         .opacity(viewModel.isFilterPickerVisible ? 1 : 0)
                     
                 }// end ZStack
-                .navigationBarTitle("FlickrFy", displayMode: .large)
+                
             }
          
             
@@ -77,7 +72,14 @@ struct HomeView: View {
                   dismissButton: alertItem.dismissButton)
         })
         .onAppear{
-            viewModel.getPhotos(numPhotos: viewModel.photosSelection)
+            viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
+        }
+        .alert(item: $viewModel.alertItem) { alertItem in
+            
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
+            
         }
     }
 }
@@ -103,14 +105,23 @@ struct PhotosPickerView: View {
                     }
                 }, label: {
                     Text("Save change")
+<<<<<<< HEAD
                         .foregroundColor(Color(.lightGray))
                         .padding()
                 })
+=======
+                        .foregroundColor(Color.white)
+                }).padding()
+>>>>>>> starting-unit-testing
                 
                 Picker("Number of photos", selection: $selection) {
                     ForEach(0..<1000) { num in
                         Text("\(num) \(num == 1 ? "photo" : "photos")")
+<<<<<<< HEAD
                             .foregroundColor(Color(.white))
+=======
+                            .foregroundColor(Color.white)
+>>>>>>> starting-unit-testing
                     }
                 }
                 .frame(height: proxy.size.height)
@@ -125,7 +136,7 @@ struct FilterPickerView: View {
     var completion : () -> Void
     var body: some View {
         GeometryReader { proxy in
-            ZStack(alignment: .topTrailing) {
+            ZStack(alignment: .top) {
                 Button(action: {
                     withAnimation{
                         isPickerVisible.toggle()
@@ -133,13 +144,13 @@ struct FilterPickerView: View {
                     }
                 }, label: {
                     Text("Save change")
-                        .foregroundColor(Color(.lightGray))
+                        .foregroundColor(Color.white)
                 }).padding()
                 
                 Picker("Number of photos", selection: $selectedFilter) {
                     ForEach(FilterPicker.allCases, id: \.self) { filter in
                         Text(filter.rawValue)
-                            .foregroundColor(Color(.lightGray))
+                            .foregroundColor(Color.white)
                     }
                 }
                 .frame(height: proxy.size.height)

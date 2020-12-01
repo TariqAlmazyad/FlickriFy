@@ -15,17 +15,17 @@ struct AlertItem: Identifiable {
 }
 
 struct AlertContext {
-
+    
     static let invalidData = AlertItem(title: Text("Server Error"),
-                                              message: Text("The data received from the server was invalid. Please contact support."),
-                                              dismissButton: .default(Text("OK")))
+                                       message: Text("The data received from the server was invalid."),
+                                       dismissButton: .default(Text("OK")))
     static let invalidResponse = AlertItem(title: Text("Server Error"),
-                                              message: Text("Invalid response from the server. Please try again later or contact support."),
-                                              dismissButton: .default(Text("OK")))
+                                           message: Text("Invalid response from the server. Please try again later or contact support."),
+                                           dismissButton: .default(Text("OK")))
     static let invalidURL = AlertItem(title: Text("Server Error"),
-                                              message: Text("There was issue contacting the server. If persists,  Please try again later or contact support."),
-                                              dismissButton: .default(Text("OK")))
-    static let unableToComplete = AlertItem(title: Text("Server Error"),
-                                              message: Text("Unable to complete your request at this time. If persists,  Please try again later or contact support."),
-                                              dismissButton: .default(Text("OK")))
+                                      message: Text("There was issue with the url."),
+                                      dismissButton: .default(Text("OK")))
+    static let connectionError = AlertItem(title: Text("Connection Error"),
+                                           message: Text("There was issue contacting the server. If persists,  Please try again later or contact support."),
+                                           dismissButton: .default(Text("OK")))
 }
