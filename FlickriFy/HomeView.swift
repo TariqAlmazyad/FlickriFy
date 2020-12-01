@@ -26,6 +26,7 @@ struct HomeView: View {
                                             selectedFilter: $viewModel.filterSelected)
                         
                         if viewModel.isLoading {
+                            // this is a text 
                             VStack {
                                 LottieAnimationView(jsonFileName: .constant(.flickerLoading))
                                     .frame(width: 100, height: 100)
