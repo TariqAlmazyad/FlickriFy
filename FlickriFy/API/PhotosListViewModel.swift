@@ -18,6 +18,19 @@ final class PhotosListViewModel: ObservableObject{
     @Published var isFilterPickerVisible = false
     
     
+    var isPickerVisible: Bool {
+        return isPhotoPickerVisible
+            || isFilterPickerVisible
+    }
+    
+    var filteredPhotos: [Photo] {
+        if filterSelected == .views{
+        return photos?.photos.photo.sorted { Int($0.views)! > Int($1.views)! } ?? []
+        } else {
+            return photos?.photos.photo.sorted { $0.datetaken > $1.datetaken } ?? []
+        }
+    }
+    
     
     func getPhotos(numPhotos: Int){
         self.isLoading = true
@@ -40,7 +53,7 @@ final class PhotosListViewModel: ObservableObject{
                         self?.alertItem = AlertContext.invalidData
                         
                     case .unableToComplete:
-                        self?.alertItem = AlertContext.unableToComplete
+                        self?.alertItem = AlertContext.connectionError
                     }
                 }
                 self?.isLoading = false
