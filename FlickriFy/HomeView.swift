@@ -31,7 +31,6 @@ struct HomeView: View {
                                             selectedFilter: $viewModel.filterSelected)
                         
                         if viewModel.isLoading {
-                            
                             VStack {
                                 LottieAnimationView(jsonFileName: .constant(.flickerLoading))
                                     .frame(width: 100, height: 100)
@@ -89,7 +88,7 @@ struct PhotosPickerView: View {
     var completion: () -> Void
     var body: some View {
         GeometryReader { proxy in
-            ZStack(alignment: .topTrailing) {
+            ZStack(alignment: .top) {
                 Button(action: {
                     withAnimation{
                         isPickerVisible.toggle()
@@ -98,12 +97,13 @@ struct PhotosPickerView: View {
                 }, label: {
                     Text("Save change")
                         .foregroundColor(Color(.lightGray))
-                }).padding()
+                        .padding()
+                })
                 
                 Picker("Number of photos", selection: $selection) {
                     ForEach(0..<1000) { num in
                         Text("\(num) \(num == 1 ? "photo" : "photos")")
-                            .foregroundColor(Color(.lightGray))
+                            .foregroundColor(Color(.white))
                     }
                 }
                 .frame(height: proxy.size.height)

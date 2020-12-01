@@ -20,6 +20,7 @@ struct PhotoCellView: View {
                 .overlay(
                     LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.6),
                                                                Color.clear,
+                                                               Color.clear,
                                                                Color.black.opacity(0.8)]),
                                    startPoint: .top, endPoint: .bottom)
                         .cornerRadius(10)
@@ -33,15 +34,15 @@ struct PhotoCellView: View {
                 .font(.caption)
                 .foregroundColor(.white)
                 Spacer()
-                Text("\(getDistance(lat: photo.latitude, long: photo.longitude), specifier: "%.2f") Km")
+                Text("\(getDistance(photo.latitude, photo.longitude), specifier: "%.0f") Km")
                 Text(photo.title)
                     .font(.title2)
                     .foregroundColor(.white)
             }.padding(.vertical, 12)
-        }
+        }.padding(.horizontal)
     }
     
-    private func getDistance(lat: String, long: String) -> Double {
+    private func getDistance(_ lat: String, _ long: String) -> Double {
         let coordinate = CLLocation(latitude: Double(lat)!, longitude: Double(long)!)
         let currentLocation = CLLocation(latitude: Double(LocationManager.shared.currentLocation?.latitude ?? 0.0),
                                          longitude: Double(LocationManager.shared.currentLocation?.longitude ?? 0.0))
