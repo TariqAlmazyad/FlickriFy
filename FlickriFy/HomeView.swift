@@ -20,11 +20,12 @@ struct HomeView: View {
                         .ignoresSafeArea()
                     ScrollView {
                         PhotosConfigureView(isPhotoPickerVisible: $viewModel.isPhotoPickerVisible,
-                                            selection: $viewModel.photosSelection,
+                                            selection: $viewModel.numOfSelectedPhotos,
                                             isFilterPickerVisible: $viewModel.isFilterPickerVisible,
                                             selectedFilter: $viewModel.filterSelected)
                         
                         if viewModel.isLoading {
+                            
                             VStack {
                                 LottieAnimationView(jsonFileName: .constant(.flickerLoading))
                                     .frame(width: 100, height: 100)
@@ -49,14 +50,14 @@ struct HomeView: View {
                     .blur(radius: viewModel.isPickerVisible ? 20 : 0)
                     .disabled(viewModel.isPickerVisible ? true : false)
                     
-                    PhotosPickerView(selection: $viewModel.photosSelection,
+                    PhotosPickerView(selection: $viewModel.numOfSelectedPhotos,
                                      isPickerVisible: $viewModel.isPhotoPickerVisible, completion: {
-                                        viewModel.getPhotos(numPhotos: viewModel.photosSelection)
+                                        viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
                                      })
                         .opacity(viewModel.isPhotoPickerVisible ? 1 : 0)
                     FilterPickerView(selectedFilter: $viewModel.filterSelected,
                                      isPickerVisible: $viewModel.isFilterPickerVisible, completion: {
-                                        viewModel.getPhotos(numPhotos: viewModel.photosSelection)
+                                        viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
                                      })
                         .opacity(viewModel.isFilterPickerVisible ? 1 : 0)
                     
@@ -66,7 +67,7 @@ struct HomeView: View {
             
         }.statusBarStyle(.lightContent)
         .onAppear{
-            viewModel.getPhotos(numPhotos: viewModel.photosSelection)
+            viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
         }
         .alert(item: $viewModel.alertItem) { alertItem in
             
