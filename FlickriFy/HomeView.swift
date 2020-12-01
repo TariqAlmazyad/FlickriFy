@@ -105,30 +105,29 @@ struct PhotosPickerView: View {
                     }
                 }, label: {
                     Text("Save change")
-<<<<<<< HEAD
+                        
                         .foregroundColor(Color(.lightGray))
                         .padding()
                 })
-=======
+                .foregroundColor(Color.white)
+            }.padding()
+            
+            Picker("Number of photos", selection: $selection) {
+                ForEach(0..<1000) { num in
+                    Text("\(num) \(num == 1 ? "photo" : "photos")")
+                        
+                        .foregroundColor(Color(.white))
+                        
                         .foregroundColor(Color.white)
-                }).padding()
->>>>>>> starting-unit-testing
-                
-                Picker("Number of photos", selection: $selection) {
-                    ForEach(0..<1000) { num in
-                        Text("\(num) \(num == 1 ? "photo" : "photos")")
-<<<<<<< HEAD
-                            .foregroundColor(Color(.white))
-=======
-                            .foregroundColor(Color.white)
->>>>>>> starting-unit-testing
-                    }
+                    
                 }
-                .frame(height: proxy.size.height)
             }
+            .frame(height: proxy.size.height)
         }
+        
     }
 }
+
 
 struct FilterPickerView: View {
     @Binding var selectedFilter: FilterPicker
