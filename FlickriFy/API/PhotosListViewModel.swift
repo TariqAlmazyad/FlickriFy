@@ -20,8 +20,9 @@ final class PhotosListViewModel: ObservableObject{
     
     
     func getPhotos(numPhotos: Int){
+        self.isLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.isLoading = false
+            self.isLoading = true
             NetworkingManager.shared.downloadPhotos(numPhotos: numPhotos) { [weak self] result in
                 switch result {
                 case .success( let photos):

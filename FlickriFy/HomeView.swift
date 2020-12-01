@@ -36,18 +36,18 @@ struct HomeView: View {
                             }
                         } else {
                             VStack{
-                                HStack {
-                                    Spacer()
+                                Spacer()
+                                ForEach(viewModel.photos?.photos.photo ?? [], id:\.self) { photo in
                                     RoundedRectangle(cornerRadius: 20)
                                         .frame(width: 200, height: 200)
-                                    Spacer()
                                 }
+                                Spacer()
                             }
                         }// end if else
                         
                     }// end scrollView
                     .blur(radius: viewModel.isPhotoPickerVisible || viewModel.isFilterPickerVisible ? 20 : 0)
-                    
+                    .disabled(viewModel.isPhotoPickerVisible || viewModel.isFilterPickerVisible ? true : false)
                     .onAppear{
                         viewModel.getPhotos(numPhotos: viewModel.photosSelection)
                     }
@@ -64,7 +64,7 @@ struct HomeView: View {
                         .opacity(viewModel.isFilterPickerVisible ? 1 : 0)
                     
                 }// end ZStack
-                .navigationBarTitle("Discovery", displayMode: .large)
+                .navigationBarTitle("FlickrFy", displayMode: .large)
             }
             
         }.statusBarStyle(.lightContent)
