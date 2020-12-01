@@ -12,7 +12,7 @@ final class PhotosListViewModel: ObservableObject{
     @Published var alertItem: AlertItem?
     @Published var isLoading: Bool = true
     @Published var selectedPhoto: Photos?
-    @Published var photosSelection: Int = 100
+    @Published var photosSelection: Int = 20
     @Published var isPhotoPickerVisible = false
     @Published var filterSelected: FilterPicker = .views
     @Published var isFilterPickerVisible = false

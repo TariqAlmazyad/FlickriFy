@@ -38,8 +38,8 @@ struct HomeView: View {
                             VStack{
                                 Spacer()
                                 ForEach(viewModel.photos?.photos.photo ?? [], id:\.self) { photo in
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .frame(width: 200, height: 200)
+                                    PhotoCellView(photo: photo)
+                                        .padding(.vertical, 12)
                                 }
                                 Spacer()
                             }
@@ -48,9 +48,6 @@ struct HomeView: View {
                     }// end scrollView
                     .blur(radius: viewModel.isPhotoPickerVisible || viewModel.isFilterPickerVisible ? 20 : 0)
                     .disabled(viewModel.isPhotoPickerVisible || viewModel.isFilterPickerVisible ? true : false)
-                    .onAppear{
-                        viewModel.getPhotos(numPhotos: viewModel.photosSelection)
-                    }
                     
                     PhotosPickerView(selection: $viewModel.photosSelection,
                                      isPickerVisible: $viewModel.isPhotoPickerVisible, completion: {
@@ -68,6 +65,9 @@ struct HomeView: View {
             }
             
         }.statusBarStyle(.lightContent)
+        .onAppear{
+            viewModel.getPhotos(numPhotos: viewModel.photosSelection)
+        }
     }
 }
 

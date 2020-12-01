@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-final class ImageManager: ObservableObject{
+
+final class ImageLoader: ObservableObject {
     @Published var image: Image? = nil
-    func load(fromURLString urlString: String){
+    func load(fromURLString urlString: String) {
         NetworkingManager.shared.downloadImage(fromURLString: urlString) { [weak self] uiImage in
             guard let self = self else {return}
             guard let uiImage = uiImage else {return}
@@ -24,17 +25,17 @@ final class ImageManager: ObservableObject{
 struct RemoteImage: View {
     var image: Image?
     var body: some View {
-        image?.resizable() ?? Image(systemName: "photo")
+        image?.resizable() ?? Image(systemName: "photo.on.rectangle.angled").resizable()
     }
 }
 
-struct FlickrRemoteImage: View {
-    @StateObject var imageLoader = ImageManager()
+struct FlickrFyRemoteImage: View {
+    
+    @StateObject var imageLoader = ImageLoader()
     let urlString: String
+    
     var body: some View{
         RemoteImage(image: imageLoader.image)
-            .onAppear{
-                imageLoader.load(fromURLString: urlString)
-            }
+            .onAppear{imageLoader.load(fromURLString: urlString)}
     }
 }
