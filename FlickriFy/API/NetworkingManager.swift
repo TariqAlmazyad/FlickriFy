@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-private let api_key = "d89fb63f9ad2c49fac5a0e26fa19e7f9"
+
 
 enum NetworkError: Error {
     case invalidURL
@@ -22,7 +22,7 @@ final class NetworkingManager {
     private let cache = NSCache<NSString, UIImage>()
     private let lat = LocationManager.shared.currentLocation?.latitude ?? 0.0
     private let lon = LocationManager.shared.currentLocation?.longitude ?? 0.0
-    
+    public let api_key = "d89fb63f9ad2c49fac5a0e26fa19e7f9"
     private init () {}
     
     /// Make API call with number of desired photos

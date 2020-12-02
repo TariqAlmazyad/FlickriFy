@@ -23,6 +23,12 @@ class FlickriFyTests: XCTestCase {
         
         XCTAssertEqual(viewModel.filterSelected, FilterPicker.views)
         
+        XCTAssertEqual(viewModel.isPickerVisible, false)
+        
+        let api_key = NetworkingManager.shared.api_key
+        
+        XCTAssertEqual(ProcessInfo.processInfo.environment["api_key"], api_key)
+        
         
     }
     
