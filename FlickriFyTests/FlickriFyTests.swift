@@ -12,6 +12,18 @@ class FlickriFyTests: XCTestCase {
 
     func testPhotoViewModel(){
         let viewModel = PhotosViewModel()
+        
+        XCTAssertEqual(viewModel.isLoading, true)
+        
+        XCTAssertEqual(viewModel.numOfSelectedPhotos, 20)
+        
+        XCTAssertEqual(viewModel.isPhotoPickerVisible, false)
+        
+        XCTAssertEqual(viewModel.isFilterPickerVisible, false)
+        
+        XCTAssertEqual(viewModel.filterSelected, FilterPicker.views)
+        
+        
     }
     
    
