@@ -10,7 +10,7 @@ import Firebase
 
 struct HomeView: View {
     
-    @StateObject var viewModel = PhotosListViewModel()
+    @StateObject var viewModel = PhotosViewModel()
     
     var body: some View {
         ZStack {

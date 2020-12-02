@@ -11,7 +11,7 @@ import XCTest
 class FlickriFyTests: XCTestCase {
 
     func testPhotoViewModel(){
-        let viewModel = PhotosListViewModel()
+        let viewModel = PhotosViewModel()
     }
     
    

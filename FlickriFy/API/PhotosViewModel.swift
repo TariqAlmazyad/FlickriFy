@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreLocation
-final class PhotosListViewModel: ObservableObject{
+final class PhotosViewModel: ObservableObject{
     
     @Published var photos: Photos?
     @Published var alertItem: AlertItem?
