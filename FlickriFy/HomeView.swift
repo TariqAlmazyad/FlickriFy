@@ -14,16 +14,19 @@ struct HomeView: View {
     
     var body: some View {
         TabView {
+            
+            FlickrListView(viewModel: viewModel)
+                .tabItem {
+                    Text("List")
+                    Image(systemName: "list.bullet")}
+            
             PhotosMapView(viewModel: viewModel)
                 .tabItem {
                     Text("Map")
                     Image(systemName: "map.fill")
                     
                 }
-            FlickrListView(viewModel: viewModel)
-                .tabItem {
-                    Text("List")
-                    Image(systemName: "list.bullet")}
+          
             
             
         }.accentColor(.white)

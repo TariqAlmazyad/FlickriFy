@@ -27,6 +27,8 @@
 		8396BE3A25755EEB00788134 /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396BE3925755EEB00788134 /* LottieAnimationView.swift */; };
 		83AF7B0F2577367000860279 /* FlickrListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF7B0E2577367000860279 /* FlickrListView.swift */; };
 		83AF7B13257739B300860279 /* PhotosMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF7B12257739B300860279 /* PhotosMapView.swift */; };
+		83AF7B182577637100860279 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 83AF7B172577637100860279 /* Cosmos */; };
+		83AF7B1C2577639A00860279 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF7B1B2577639A00860279 /* RatingView.swift */; };
 		83CA1B472575741900E748F8 /* Utilis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B462575741900E748F8 /* Utilis.swift */; };
 		83CA1B5125758BE200E748F8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B5025758BE200E748F8 /* NetworkingManager.swift */; };
 		83CA1B552575945000E748F8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B542575945000E748F8 /* Model.swift */; };
@@ -99,6 +101,7 @@
 		8396BE3925755EEB00788134 /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
 		83AF7B0E2577367000860279 /* FlickrListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrListView.swift; sourceTree = "<group>"; };
 		83AF7B12257739B300860279 /* PhotosMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosMapView.swift; sourceTree = "<group>"; };
+		83AF7B1B2577639A00860279 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		83CA1B462575741900E748F8 /* Utilis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilis.swift; sourceTree = "<group>"; };
 		83CA1B5025758BE200E748F8 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		83CA1B542575945000E748F8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 			files = (
 				8396BE13257551EE00788134 /* LNPopupUI in Frameworks */,
 				8396BE1A2575521100788134 /* Lottie in Frameworks */,
+				83AF7B182577637100860279 /* Cosmos in Frameworks */,
 				CA2F9A05933D017FB472E8AC /* Pods_FlickriFy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +247,7 @@
 			children = (
 				83CA1B602575A40600E748F8 /* LocationManager.swift */,
 				83CA1B58257598D700E748F8 /* Alert.swift */,
+				83AF7B1B2577639A00860279 /* RatingView.swift */,
 				8396BE3925755EEB00788134 /* LottieAnimationView.swift */,
 				83CA1B462575741900E748F8 /* Utilis.swift */,
 			);
@@ -294,6 +299,7 @@
 			packageProductDependencies = (
 				8396BE12257551EE00788134 /* LNPopupUI */,
 				8396BE192575521100788134 /* Lottie */,
+				83AF7B172577637100860279 /* Cosmos */,
 			);
 			productName = FlickriFy;
 			productReference = 8396BDD225754F6500788134 /* FlickriFy.app */;
@@ -372,6 +378,7 @@
 			packageReferences = (
 				8396BE11257551EE00788134 /* XCRemoteSwiftPackageReference "LNPopupUI" */,
 				8396BE182575521100788134 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				83AF7B162577637000860279 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 8396BDD325754F6500788134 /* Products */;
 			projectDirPath = "";
@@ -528,6 +535,7 @@
 				83CA1B7C2575BB4E00E748F8 /* ImageManager.swift in Sources */,
 				83CA1B5D25759C4900E748F8 /* PhotosViewModel.swift in Sources */,
 				83CA1B472575741900E748F8 /* Utilis.swift in Sources */,
+				83AF7B1C2577639A00860279 /* RatingView.swift in Sources */,
 				83AF7B13257739B300860279 /* PhotosMapView.swift in Sources */,
 				8396BE3A25755EEB00788134 /* LottieAnimationView.swift in Sources */,
 				83CA1B552575945000E748F8 /* Model.swift in Sources */,
@@ -880,6 +888,14 @@
 				minimumVersion = 3.1.9;
 			};
 		};
+		83AF7B162577637000860279 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -892,6 +908,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8396BE182575521100788134 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		83AF7B172577637100860279 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 83AF7B162577637000860279 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

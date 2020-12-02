@@ -27,8 +27,14 @@ struct PhotoCellView: View {
                 )
             VStack{
                 HStack{
-                    Text("views: \(photo.views)")
+                    VStack(spacing: 0){
+                        Text("views: \(photo.views)")
+                        RatingView(rating: .constant(Double.random(in: 0..<5)),
+                                   starsSize: .constant(20))
+                            .frame(width: 100, height: 20)
+                    }.padding(.horizontal, 12)
                     Spacer()
+                    
                     Text(photo.datetaken)
                 }.padding(.horizontal)
                 .font(.caption)

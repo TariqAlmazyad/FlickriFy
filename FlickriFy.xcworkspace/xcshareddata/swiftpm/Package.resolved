@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Cosmos",
+        "repositoryURL": "https://github.com/evgenyneu/Cosmos",
+        "state": {
+          "branch": null,
+          "revision": "cce521e734d0090494bd4afab5fd2e2f2465c1af",
+          "version": "23.0.0"
+        }
+      },
+      {
         "package": "LNPopupController",
         "repositoryURL": "https://github.com/LeoNatan/LNPopupController.git",
         "state": {
