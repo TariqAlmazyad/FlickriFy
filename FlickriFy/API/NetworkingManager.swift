@@ -20,8 +20,8 @@ enum NetworkError: Error {
 final class NetworkingManager {
     static let shared = NetworkingManager()
     private let cache = NSCache<NSString, UIImage>()
-    private let lat = LocationManager.shared.currentLocation?.latitude ?? 0.0
-    private let lon = LocationManager.shared.currentLocation?.longitude ?? 0.0
+//    private let lat = LocationManager.shared.currentLocation?.latitude ?? 0.0
+//    private let lon = LocationManager.shared.currentLocation?.longitude ?? 0.0
     public let api_key = "d89fb63f9ad2c49fac5a0e26fa19e7f9"
     private init () {}
     
@@ -30,7 +30,7 @@ final class NetworkingManager {
     ///   - numPhotos: total displayed photos in view
     ///   - completion: once the request finishes, it escapes with result
     func downloadPhotos(numPhotos: Int ,completion: @escaping(Result<Photos, NetworkError>) -> Void) {
-        let baseUrl = "https://api.flickr.com/services/rest?lat=\(lat)&format=json&media=photos&method=flickr.photos.search&api_key=\(api_key)&radius=20&nojsoncallback=1&per_page=\(numPhotos)&lon=\(lon)&extras=url_z,date_taken,geo,tags,views"
+        let baseUrl = "https://api.flickr.com/services/rest?lat=\(LocationManager.location.latitude)&format=json&media=photos&method=flickr.photos.search&api_key=\(api_key)&radius=20&nojsoncallback=1&per_page=\(numPhotos)&lon=\(LocationManager.location.longitude)&extras=url_z,date_taken,geo,tags,views"
         
         guard let url = URL(string: baseUrl) else {
             completion(.failure(.invalidURL))

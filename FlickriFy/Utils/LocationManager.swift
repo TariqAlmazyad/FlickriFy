@@ -14,7 +14,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     var currentLocation: CLLocationCoordinate2D?
     
-    
+    static var location: CLLocationCoordinate2D {
+        guard let currentLocation = LocationManager.shared.currentLocation else { return .init(latitude: 0.0, longitude: 0.0)}
+        return currentLocation
+    }
+ 
     private override init() {
         super.init()
         startUpdating()
