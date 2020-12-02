@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FlickrListView: View {
-   @StateObject  var viewModel:  PhotosViewModel
+    @StateObject  var viewModel:  PhotosViewModel
+    @State var rating: Double = Double.random(in: 0..<5)
     var body: some View {
         ZStack {
             NavigationView{
@@ -34,7 +35,12 @@ struct FlickrListView: View {
                             VStack{
                                 Spacer()
                                 ForEach(viewModel.filteredPhotos, id:\.self) { photo in
-                                    PhotoCellView(photo: photo)
+                                    NavigationLink(
+                                        destination: PhotoDetailView(photo: photo, rating: $rating),
+                                        label: {
+                                            PhotoCellView(photo: photo)
+                                        })
+
                                         .padding(.vertical, 12)
                                 }
                                 Spacer()

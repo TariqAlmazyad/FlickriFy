@@ -11,21 +11,19 @@ import Firebase
 struct HomeView: View {
     
     @StateObject var viewModel = PhotosViewModel()
-    
     var body: some View {
         TabView {
-            
             FlickrListView(viewModel: viewModel)
                 .tabItem {
                     Text("List")
                     Image(systemName: "list.bullet")}
-            
             PhotosMapView(viewModel: viewModel)
                 .tabItem {
                     Text("Map")
                     Image(systemName: "map.fill")
                     
                 }
+            
           
             
             

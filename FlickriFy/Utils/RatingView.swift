@@ -18,14 +18,15 @@ struct RatingView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: CosmosView, context: Context) {
-        uiView.rating = Double.random(in: 0..<5)
-        
+        uiView.rating = rating
+        uiView.isUserInteractionEnabled = false
         // Autoresize Cosmos view according to it intrinsic size
         uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
         uiView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-      
+        uiView.text = String(format: "%.2f", uiView.rating)
         // Change Cosmos view settings here
         uiView.settings.starSize = starsSize
+        uiView.settings.textColor = .white
     }
 }
 

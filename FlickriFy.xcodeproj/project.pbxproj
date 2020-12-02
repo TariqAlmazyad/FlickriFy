@@ -29,6 +29,8 @@
 		83AF7B13257739B300860279 /* PhotosMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF7B12257739B300860279 /* PhotosMapView.swift */; };
 		83AF7B182577637100860279 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 83AF7B172577637100860279 /* Cosmos */; };
 		83AF7B1C2577639A00860279 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF7B1B2577639A00860279 /* RatingView.swift */; };
+		83C982EF257782C500172712 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C982EE257782C500172712 /* PhotoDetailView.swift */; };
+		83C982F425778DF600172712 /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 83C982F325778DF600172712 /* LoremSwiftum */; };
 		83CA1B472575741900E748F8 /* Utilis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B462575741900E748F8 /* Utilis.swift */; };
 		83CA1B5125758BE200E748F8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B5025758BE200E748F8 /* NetworkingManager.swift */; };
 		83CA1B552575945000E748F8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B542575945000E748F8 /* Model.swift */; };
@@ -102,6 +104,7 @@
 		83AF7B0E2577367000860279 /* FlickrListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrListView.swift; sourceTree = "<group>"; };
 		83AF7B12257739B300860279 /* PhotosMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosMapView.swift; sourceTree = "<group>"; };
 		83AF7B1B2577639A00860279 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		83C982EE257782C500172712 /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		83CA1B462575741900E748F8 /* Utilis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilis.swift; sourceTree = "<group>"; };
 		83CA1B5025758BE200E748F8 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		83CA1B542575945000E748F8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8396BE13257551EE00788134 /* LNPopupUI in Frameworks */,
+				83C982F425778DF600172712 /* LoremSwiftum in Frameworks */,
 				8396BE1A2575521100788134 /* Lottie in Frameworks */,
 				83AF7B182577637100860279 /* Cosmos in Frameworks */,
 				CA2F9A05933D017FB472E8AC /* Pods_FlickriFy.framework in Frameworks */,
@@ -183,6 +187,7 @@
 				8396BDD725754F6500788134 /* HomeView.swift */,
 				83AF7B12257739B300860279 /* PhotosMapView.swift */,
 				83AF7B0E2577367000860279 /* FlickrListView.swift */,
+				83C982EE257782C500172712 /* PhotoDetailView.swift */,
 				83CA1B852576204800E748F8 /* PhotoCellView.swift */,
 				83CA1B6C2575A4F100E748F8 /* API */,
 				83CA1B642575A4D100E748F8 /* Model */,
@@ -300,6 +305,7 @@
 				8396BE12257551EE00788134 /* LNPopupUI */,
 				8396BE192575521100788134 /* Lottie */,
 				83AF7B172577637100860279 /* Cosmos */,
+				83C982F325778DF600172712 /* LoremSwiftum */,
 			);
 			productName = FlickriFy;
 			productReference = 8396BDD225754F6500788134 /* FlickriFy.app */;
@@ -379,6 +385,7 @@
 				8396BE11257551EE00788134 /* XCRemoteSwiftPackageReference "LNPopupUI" */,
 				8396BE182575521100788134 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				83AF7B162577637000860279 /* XCRemoteSwiftPackageReference "Cosmos" */,
+				83C982F225778DF600172712 /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
 			);
 			productRefGroup = 8396BDD325754F6500788134 /* Products */;
 			projectDirPath = "";
@@ -539,6 +546,7 @@
 				83AF7B13257739B300860279 /* PhotosMapView.swift in Sources */,
 				8396BE3A25755EEB00788134 /* LottieAnimationView.swift in Sources */,
 				83CA1B552575945000E748F8 /* Model.swift in Sources */,
+				83C982EF257782C500172712 /* PhotoDetailView.swift in Sources */,
 				83CA1B5125758BE200E748F8 /* NetworkingManager.swift in Sources */,
 				8396BDD625754F6500788134 /* FlickriFyApp.swift in Sources */,
 				83CA1B59257598D800E748F8 /* Alert.swift in Sources */,
@@ -896,6 +904,14 @@
 				minimumVersion = 23.0.0;
 			};
 		};
+		83C982F225778DF600172712 /* XCRemoteSwiftPackageReference "LoremSwiftum" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukaskubanek/LoremSwiftum";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -913,6 +929,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 83AF7B162577637000860279 /* XCRemoteSwiftPackageReference "Cosmos" */;
 			productName = Cosmos;
+		};
+		83C982F325778DF600172712 /* LoremSwiftum */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 83C982F225778DF600172712 /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
+			productName = LoremSwiftum;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
