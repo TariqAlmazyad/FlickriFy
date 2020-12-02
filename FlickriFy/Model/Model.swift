@@ -19,7 +19,8 @@ struct PhotosData: Decodable, Hashable {
     let photo: [Photo]
 }
 
-struct Photo: Decodable, Hashable {
+struct Photo: Decodable, Hashable, Identifiable {
+    let id: String
     let title : String
     let datetaken : String
     let views : String

@@ -28,6 +28,8 @@ struct FlickriFyApp: App {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().barStyle = .black
+        LocationManager.shared.requestLocationAccess()
+        LocationManager.shared.startUpdating()
     }
     
     var body: some Scene {
