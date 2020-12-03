@@ -15,21 +15,22 @@ struct FavoritePhotosView: View {
         VStack(alignment: .center){
             List{
                 ForEach(firebaseVM.photos) { photo in
-                    FlickrFyRemoteImage(urlString: "\(photo.url_z)")
-                        .frame(width: 330, height: 200)
+                    PhotoCellView(photo: photo)
+                        .offset(x: -30.0)
                 }.onDelete(perform: firebaseVM.deleteItem)
+
             }.onChange(of: firebaseVM.photos, perform: { value in
                 DispatchQueue.main.async {
                     firebaseVM.fetchPhotosFromFirebase()
                 }
             })
-        }.onAppear{
+        }.padding(.top, 30)
+        
+        .onAppear{
             firebaseVM.fetchPhotosFromFirebase()
         }
-        
     }
 }
-
 
 struct FavoritePhotosView_Previews: PreviewProvider {
     static var previews: some View {
