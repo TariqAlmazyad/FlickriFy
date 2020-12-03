@@ -31,6 +31,9 @@
 		83AF7B1C2577639A00860279 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF7B1B2577639A00860279 /* RatingView.swift */; };
 		83C982EF257782C500172712 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C982EE257782C500172712 /* PhotoDetailView.swift */; };
 		83C982F425778DF600172712 /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 83C982F325778DF600172712 /* LoremSwiftum */; };
+		83C9831225788B0500172712 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C9831125788B0500172712 /* FirebaseManager.swift */; };
+		83C9831625788D4400172712 /* FirebaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C9831525788D4400172712 /* FirebaseViewModel.swift */; };
+		83C9831A257894C500172712 /* FavoritePhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C98319257894C500172712 /* FavoritePhotosView.swift */; };
 		83CA1B472575741900E748F8 /* Utilis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B462575741900E748F8 /* Utilis.swift */; };
 		83CA1B5125758BE200E748F8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B5025758BE200E748F8 /* NetworkingManager.swift */; };
 		83CA1B552575945000E748F8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B542575945000E748F8 /* Model.swift */; };
@@ -105,6 +108,9 @@
 		83AF7B12257739B300860279 /* PhotosMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosMapView.swift; sourceTree = "<group>"; };
 		83AF7B1B2577639A00860279 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		83C982EE257782C500172712 /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
+		83C9831125788B0500172712 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		83C9831525788D4400172712 /* FirebaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewModel.swift; sourceTree = "<group>"; };
+		83C98319257894C500172712 /* FavoritePhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePhotosView.swift; sourceTree = "<group>"; };
 		83CA1B462575741900E748F8 /* Utilis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilis.swift; sourceTree = "<group>"; };
 		83CA1B5025758BE200E748F8 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		83CA1B542575945000E748F8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 			children = (
 				8396BDD525754F6500788134 /* FlickriFyApp.swift */,
 				8396BDD725754F6500788134 /* HomeView.swift */,
+				83C98319257894C500172712 /* FavoritePhotosView.swift */,
 				83AF7B12257739B300860279 /* PhotosMapView.swift */,
 				83AF7B0E2577367000860279 /* FlickrListView.swift */,
 				83C982EE257782C500172712 /* PhotoDetailView.swift */,
@@ -264,6 +271,8 @@
 			children = (
 				83CA1B5C25759C4900E748F8 /* PhotosViewModel.swift */,
 				83CA1B5025758BE200E748F8 /* NetworkingManager.swift */,
+				83C9831125788B0500172712 /* FirebaseManager.swift */,
+				83C9831525788D4400172712 /* FirebaseViewModel.swift */,
 				83CA1B7B2575BB4E00E748F8 /* ImageManager.swift */,
 			);
 			path = API;
@@ -541,6 +550,8 @@
 				8396BDD825754F6500788134 /* HomeView.swift in Sources */,
 				83CA1B7C2575BB4E00E748F8 /* ImageManager.swift in Sources */,
 				83CA1B5D25759C4900E748F8 /* PhotosViewModel.swift in Sources */,
+				83C9831A257894C500172712 /* FavoritePhotosView.swift in Sources */,
+				83C9831625788D4400172712 /* FirebaseViewModel.swift in Sources */,
 				83CA1B472575741900E748F8 /* Utilis.swift in Sources */,
 				83AF7B1C2577639A00860279 /* RatingView.swift in Sources */,
 				83AF7B13257739B300860279 /* PhotosMapView.swift in Sources */,
@@ -550,6 +561,7 @@
 				83CA1B5125758BE200E748F8 /* NetworkingManager.swift in Sources */,
 				8396BDD625754F6500788134 /* FlickriFyApp.swift in Sources */,
 				83CA1B59257598D800E748F8 /* Alert.swift in Sources */,
+				83C9831225788B0500172712 /* FirebaseManager.swift in Sources */,
 				83AF7B0F2577367000860279 /* FlickrListView.swift in Sources */,
 				83CA1B862576204900E748F8 /* PhotoCellView.swift in Sources */,
 				83CA1B612575A40600E748F8 /* LocationManager.swift in Sources */,

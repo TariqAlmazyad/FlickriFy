@@ -48,7 +48,8 @@ final class PhotosViewModel: ObservableObject{
                     print("Download is success \(photos)")
                     print("Total photos \(photos.photos.photo.count)")
                     self.photos = photos
-                    
+                    print("XCurrent location is \(LocationManager.location.latitude)")
+                    print("XCurrent location is \(LocationManager.location.longitude)")
                     
                 case .failure( let error):
                     switch error {

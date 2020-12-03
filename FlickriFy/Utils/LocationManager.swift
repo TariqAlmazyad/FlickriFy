@@ -11,6 +11,7 @@ import CoreLocation
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
     static let shared = LocationManager()
+    
     var locationManager = CLLocationManager()
     var currentLocation: CLLocationCoordinate2D?
     
@@ -39,7 +40,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
     }
     
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         currentLocation = location.coordinate
@@ -58,6 +58,4 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             // Fallback on earlier versions
         }
     }
-    
-    
 }

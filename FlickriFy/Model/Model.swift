@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Photos: Decodable , Hashable {
+struct Photos: Codable , Hashable {
     let photos: PhotosData
 }
 
-struct PhotosData: Decodable, Hashable {
+struct PhotosData: Codable, Hashable {
     let page: Int
     let pages: Int
     let perpage: Int
@@ -19,7 +19,7 @@ struct PhotosData: Decodable, Hashable {
     let photo: [Photo]
 }
 
-struct Photo: Decodable, Hashable, Identifiable {
+struct Photo: Codable, Hashable, Identifiable {
     let id: String
     let title : String
     let datetaken : String

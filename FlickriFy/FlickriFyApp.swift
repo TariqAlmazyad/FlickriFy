@@ -36,6 +36,7 @@ struct FlickriFyApp: App {
         WindowGroup {
             RootView{
                 HomeView()
+                    .preferredColorScheme(.dark)
             }
         }
     }

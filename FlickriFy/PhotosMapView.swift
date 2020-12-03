@@ -79,7 +79,6 @@ struct CustomMapAnnotation: View {
 
 
 extension String {
-    
     /// Useful extension to get the width of any string for dynamic sizing and styling
     /// - Parameter font: you can pass the desired font to calculate the with based on the font type , e,g bold is little larger than light or regular
     /// - Returns: CGFloat as width for Any Text view

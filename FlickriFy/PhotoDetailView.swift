@@ -11,6 +11,7 @@ import LoremSwiftum
 
 struct PhotoDetailView: View {
     let photo: Photo
+    @State var isFavorite: Bool = false
     @Binding var rating: Double 
     var body: some View {
         ZStack(alignment: .bottom){
@@ -20,6 +21,28 @@ struct PhotoDetailView: View {
                 .ignoresSafeArea()
             LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black]),
                            startPoint: .center, endPoint: .bottom)
+                .overlay(
+                    Button(action: {
+                        FirebaseManager.shared.addToMyFavorite(photo) { error in
+                            if let error = error {
+                                print(error.localizedDescription)
+                                return
+                            }
+                            print("success")
+                        }
+                    }, label: {
+                        HStack {
+                            Text("Favorite Photo")
+                            Image(systemName: "star")
+                        }
+                        .font(.system(size: 24))
+                        .foregroundColor(.white)
+                    })
+                    .frame(width: 200, height: 50)
+                    .padding()
+                    ,
+                    alignment: .top
+                )
             HStack{
                 VStack{
                     Text(photo.title)
