@@ -5,8 +5,6 @@
 //  Created by Tariq Almazyad on 11/30/20.
 //
 
-
-
 import SwiftUI
 
 class HostingController<Content: View>: UIHostingController<Content> {
@@ -30,6 +28,18 @@ struct RootView<Content: View> : View {
             }
     }
 }
+
+extension String {
+    /// Useful extension to get the width of any string for dynamic sizing and styling
+    /// - Parameter font: you can pass the desired font to calculate the with based on the font type , e,g bold is little larger than light or regular
+    /// - Returns: CGFloat as width for Any Text view
+    func widthOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttributes)
+        return size.width
+    }
+}
+
 
 extension View {
     ///Sets the status bar style color for this view.

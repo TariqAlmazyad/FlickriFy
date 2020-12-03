@@ -15,17 +15,16 @@ struct HomeView: View {
     @State private var isPopupOpen: Bool = false
     var body: some View {
         TabView {
-            PhotosMapView(viewModel: viewModel)
-                .tabItem {
-                    Text("Map")
-                    Image(systemName: "map.fill")
-                    
-                }
             FlickrListView(viewModel: viewModel)
                 .tabItem {
                     Text("List")
                     Image(systemName: "list.bullet")}
-            
+            PhotosMapView(viewModel: viewModel)
+                .tabItem {
+                    Text("Map")
+                    Image(systemName: "map.fill")
+                }
+
         }.accentColor(.white)
         
         .popup(isBarPresented: .constant(true), isPopupOpen: $isPopupOpen) {
