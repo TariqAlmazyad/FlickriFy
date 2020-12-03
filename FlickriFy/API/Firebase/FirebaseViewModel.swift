@@ -14,7 +14,7 @@ final class FirebaseViewModel: ObservableObject {
     @Published var photos = [Photo]()
     @Published var isFavorite: Bool = false
     
-    
+    // get photos from firebase
     func fetchPhotosFromFirebase(){
         var photosDictionary: [String: Photo] = [:]
         Firestore.firestore().collection("my favorite").addSnapshotListener { [weak self] (snapshot, error) in
@@ -26,6 +26,7 @@ final class FirebaseViewModel: ObservableObject {
             
             guard let snapshot = snapshot?.documentChanges else {return}
             self.photos = snapshot.compactMap{ try? $0.document.data(as: Photo.self)}
+            // simple solution to avoid duplicate document by using dictionary IDs , since each id is unique .
             self.photos.forEach { photo in
                 let photoTemp = photo
                 photosDictionary[photoTemp.id] = photo
@@ -34,12 +35,12 @@ final class FirebaseViewModel: ObservableObject {
             self.photos = Array(photosDictionary.values)
         }
     }
-    
+    // delete chosen photo
     func deleteItem(at offsets: IndexSet){
         if let photo = photos.enumerated().first(where: {$0.offset == offsets.first}) {
             DispatchQueue.main.async { [weak self] in
                 self?.photos.remove(atOffsets: offsets)
-                FirebaseManager.shared.deleteMyFavorite(photo.element.id) { error in
+                FirebaseManager.shared.favoriteManager(.deleteFavorite, photo: photo.element) { error in
                     if let error = error {
                         print("DEBUG: error while deleting item\(error.localizedDescription)")
                         return

@@ -23,7 +23,7 @@ struct PhotoDetailView: View {
                            startPoint: .center, endPoint: .bottom)
                 .overlay(
                     Button(action: {
-                        FirebaseManager.shared.addToMyFavorite(photo) { error in
+                        FirebaseManager.shared.favoriteManager(.addFavorite, photo: photo) { error in
                             if let error = error {
                                 print(error.localizedDescription)
                                 return

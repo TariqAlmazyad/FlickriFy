@@ -48,19 +48,21 @@ final class PhotosViewModel: ObservableObject{
                     print("Download is success \(photos)")
                     print("Total photos \(photos.photos.photo.count)")
                     self.photos = photos
-                    print("XCurrent location is \(LocationManager.location.latitude)")
-                    print("XCurrent location is \(LocationManager.location.longitude)")
+                    print("Current Location is \(LocationManager.location.latitude)")
+                    print("Current Location is \(LocationManager.location.longitude)")
                     
                 case .failure( let error):
                     switch error {
+                    // display error if we have invalid link
                     case .invalidURL:
                         self.alertItem = AlertContext.invalidURL
+                        // display error if we have invalid Request
                     case .invalidRequest:
                         self.alertItem = AlertContext.invalidResponse
-                        
+                        // display error if we have invalid Data struct 
                     case .invalidData:
                         self.alertItem = AlertContext.invalidData
-                        
+                        // display error if we have internet connection
                     case .unableToComplete:
                         self.alertItem = AlertContext.connectionError
                     }
