@@ -28,7 +28,7 @@ struct HomeView: View {
         }.accentColor(.white)
         
         .popup(isBarPresented: .constant(true), isPopupOpen: $isPopupOpen) {
-            
+            FavoritePhotosView()
         }
         .popupInteractionStyle(.drag)
         .popupBarCustomView(wantsDefaultTapGesture: true, wantsDefaultPanGesture: true,

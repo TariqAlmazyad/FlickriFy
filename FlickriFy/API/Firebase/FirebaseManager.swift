@@ -27,4 +27,9 @@ final class FirebaseManager{
         }
     }
     
+    
+    func deleteMyFavorite(_ photoId: String, completion: ((Error?) -> Void)?) {
+        Firestore.firestore().collection("my favorite").document(photoId).delete(completion: completion)
+    }
+    
 }

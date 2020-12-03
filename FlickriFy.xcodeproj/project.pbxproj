@@ -246,8 +246,8 @@
 		83C9831D2578984A00172712 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				83C9831125788B0500172712 /* FirebaseManager.swift */,
 				83C9831525788D4400172712 /* FirebaseViewModel.swift */,
+				83C9831125788B0500172712 /* FirebaseManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
