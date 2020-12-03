@@ -58,6 +58,7 @@ struct PhotoInformationView: View {
             .font(.caption)
             .foregroundColor(.white)
             Spacer()
+            
             Text("\(getDistance(photo.latitude, photo.longitude), specifier: "%.0f") Km")
             Text(photo.title)
                 .font(.title2)

@@ -18,9 +18,11 @@ enum NetworkError: Error {
 }
 
 final class NetworkingManager {
+    
     static let shared = NetworkingManager()
     private let cache = NSCache<NSString, UIImage>()
     public let api_key = "d89fb63f9ad2c49fac5a0e26fa19e7f9"
+    
     private init () {}
     
     /// Make API call with number of desired photos
@@ -30,25 +32,32 @@ final class NetworkingManager {
     func downloadPhotos(numPhotos: Int ,completion: @escaping(Result<Photos, NetworkError>) -> Void) {
         let baseUrl = "https://api.flickr.com/services/rest?lat=\(LocationManager.location.latitude)&format=json&media=photos&method=flickr.photos.search&api_key=\(api_key)&radius=20&nojsoncallback=1&per_page=\(numPhotos)&lon=\(LocationManager.location.longitude)&extras=url_z,date_taken,geo,tags,views"
         
+        // safely unwrap the baseUrl
         guard let url = URL(string: baseUrl) else {
             completion(.failure(.invalidURL))
             return
         }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
+        // start URLSession
+        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            // Update result on main thread
+            DispatchQueue.main.async { [weak self] in
+                // check for response , if error then return
                 if let response = (response as? HTTPURLResponse)?.statusCode , response >= 400 {
                     completion(.failure(.invalidRequest))
                     return
                 }
+                // check for error , if error exists , then return
                 if let error = error {
                     print(error)
                     completion(.failure(.unableToComplete))
                     return
                 }
+                // safely unwrap data
                 guard let data = data else {
                     completion(.failure(.invalidData))
                     return
                 }
+                // do a do catch block to decode the JSON data
                 do {
                     let decodedData = try JSONDecoder().decode(Photos.self, from: data)
                     completion(.success(decodedData))
@@ -58,6 +67,7 @@ final class NetworkingManager {
                     return
                 }
             }
+            // send request
         }.resume()
     }
     
