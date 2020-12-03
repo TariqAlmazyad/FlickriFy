@@ -11,26 +11,28 @@ struct FlickrListView: View {
     @StateObject  var viewModel:  PhotosViewModel
     @State var rating: Double = Double.random(in: 0..<5)
     var body: some View {
-        ZStack {
-            NavigationView{
-                ZStack{
+        ZStack { // <- make ZSTack to make the bg color dark
+            NavigationView{ // <-- added navigation view to display title
+                ZStack{ // <- for displaying PickerView on the top of the View
                     Color(#colorLiteral(red: 0.1138496622, green: 0.1236990467, blue: 0.1547537446, alpha: 1))
                         .ignoresSafeArea()
-                    ScrollView {
+                    ScrollView { // vertical scrollView
                         PhotosConfigureView(isPhotoPickerVisible: $viewModel.isPhotoPickerVisible,
                                             selection: $viewModel.numOfSelectedPhotos,
                                             isFilterPickerVisible: $viewModel.isFilterPickerVisible,
                                             selectedFilter: $viewModel.filterSelected)
                         
-                        if viewModel.isLoading {
-                            VStack {
-                                LottieAnimationView(jsonFileName: .constant(.flickerLoading))
+                        if viewModel.isLoading { // when the VM is loading , show the loading indicator.
+                            
+                            VStack { // <-- VSTack animationView
+                                LottieAnimationView(jsonFileName: .constant(.flickerLoading)) //<- UIKit custom animationView
                                     .frame(width: 100, height: 100)
                                 Text("Please wait...")
                                     .foregroundColor(.white)
                                     .font(.system(size: 24, weight: .semibold, design: .rounded))
                                     .padding(.top)
                             }
+                            
                         } else {
                             VStack{
                                 Spacer()
@@ -40,7 +42,7 @@ struct FlickrListView: View {
                                         label: {
                                             PhotoCellView(photo: photo)
                                         })
-
+                                        
                                         .padding(.vertical, 12)
                                 }
                                 Spacer()
@@ -49,7 +51,9 @@ struct FlickrListView: View {
                         
                     }// end scrollView
                     .navigationBarTitle("FlickrFy", displayMode: .inline)
+                    // if is pickerView visible , then blur the bg
                     .blur(radius: viewModel.isPickerVisible ? 20 : 0)
+                    // and disable the view interaction
                     .disabled(viewModel.isPickerVisible ? true : false)
                     
                     PhotosPickerView(selection: $viewModel.numOfSelectedPhotos,
@@ -57,6 +61,7 @@ struct FlickrListView: View {
                                         viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
                                      })
                         .opacity(viewModel.isPhotoPickerVisible ? 1 : 0)
+                    
                     FilterPickerView(selectedFilter: $viewModel.filterSelected,
                                      isPickerVisible: $viewModel.isFilterPickerVisible, completion: {
                                         viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
@@ -68,15 +73,9 @@ struct FlickrListView: View {
             }
             
         }.statusBarStyle(.lightContent)
-       
+        
         .onAppear{
             viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
-        }
-        .alert(item: $viewModel.alertItem) { alertItem in
-            Alert(title: alertItem.title,
-                  message: alertItem.message,
-                  dismissButton: alertItem.dismissButton)
-            
         }
     }
 }

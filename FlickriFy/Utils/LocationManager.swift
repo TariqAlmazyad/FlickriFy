@@ -22,7 +22,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
  
     private override init() {
         super.init()
-        startUpdating()
     }
     
     func requestLocationAccess(){

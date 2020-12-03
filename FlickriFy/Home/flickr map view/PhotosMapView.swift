@@ -10,25 +10,30 @@ import MapKit
 
 
 struct PhotosMapView: View {
+    @State var rating: Double = Double.random(in: 0..<5)
     @StateObject  var viewModel:  PhotosViewModel
+    // pass user location and the zoom level
     @State private var region = MKCoordinateRegion(center: LocationManager.location,
                                                    span: MKCoordinateSpan(latitudeDelta: 0.4,
                                                                           longitudeDelta: 0.4))
-    @State var rating: Double = Double.random(in: 0..<5)
+    
     var body: some View {
+        // embed the view with NavigationView
         NavigationView {
+            // create mapView
             Map(coordinateRegion: $region,
-                annotationItems: viewModel.photos?.photos.photo ?? [],
+                annotationItems: viewModel.photos?.photos.photo ?? [], //<-- add the photos array to display it in the map.
                 annotationContent: { photo in
                     MapAnnotation(coordinate: .init(latitude: Double(photo.latitude)!,
                                                     longitude: Double(photo.longitude)!)) {
                         NavigationLink(
                             destination: PhotoDetailView(photo: photo, rating: $rating),
                             label: {
-                                CustomMapAnnotation(photo: photo)
+                                CustomAnnotationView(photo: photo) // <-- create custom annotationView 
                             })
                     }
                 })
+                // once the view is loaded , fetch the photos
                 .onAppear{
                     viewModel.getPhotos(numPhotos: viewModel.numOfSelectedPhotos)
                 }.navigationBarTitle("Events", displayMode: .large)

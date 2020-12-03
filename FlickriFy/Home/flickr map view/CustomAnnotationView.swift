@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct CustomMapAnnotation: View {
+struct CustomAnnotationView: View {
     let photo: Photo
     var body: some View {
         VStack{
@@ -41,7 +41,7 @@ struct CustomMapAnnotation: View {
         return string.widthOfString(usingFont: .systemFont(ofSize: 16, weight: .bold))
     }
 }
-struct CustomMapAnnotation_Previews: PreviewProvider {
+struct CustomAnnotationView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .preferredColorScheme(.dark)

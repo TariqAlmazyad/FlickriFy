@@ -24,6 +24,7 @@ final class PhotosViewModel: ObservableObject{
             || isFilterPickerVisible
     }
     
+    // to allow user to sort photos based on views or datetaken
     var filteredPhotos: [Photo] {
         switch filterSelected {
         case .postedDate:
@@ -33,7 +34,7 @@ final class PhotosViewModel: ObservableObject{
         }
     }
     
-    
+    // fetch photos with desired limit
     func getPhotos(numPhotos: Int){
         self.isLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in

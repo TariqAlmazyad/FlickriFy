@@ -33,7 +33,7 @@
 		83C9831225788B0500172712 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C9831125788B0500172712 /* FirebaseManager.swift */; };
 		83C9831625788D4400172712 /* FirebaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C9831525788D4400172712 /* FirebaseViewModel.swift */; };
 		83C9831A257894C500172712 /* FavoritePhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C98319257894C500172712 /* FavoritePhotosView.swift */; };
-		83C98325257898D800172712 /* CustomMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C98324257898D800172712 /* CustomMapAnnotation.swift */; };
+		83C98325257898D800172712 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C98324257898D800172712 /* CustomAnnotationView.swift */; };
 		83C9834825789A3B00172712 /* PhotosMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C9834725789A3B00172712 /* PhotosMapView.swift */; };
 		83CA1B472575741900E748F8 /* Utilis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B462575741900E748F8 /* Utilis.swift */; };
 		83CA1B5125758BE200E748F8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CA1B5025758BE200E748F8 /* NetworkingManager.swift */; };
@@ -111,7 +111,7 @@
 		83C9831125788B0500172712 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		83C9831525788D4400172712 /* FirebaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewModel.swift; sourceTree = "<group>"; };
 		83C98319257894C500172712 /* FavoritePhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePhotosView.swift; sourceTree = "<group>"; };
-		83C98324257898D800172712 /* CustomMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapAnnotation.swift; sourceTree = "<group>"; };
+		83C98324257898D800172712 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		83C9834725789A3B00172712 /* PhotosMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosMapView.swift; sourceTree = "<group>"; };
 		83CA1B462575741900E748F8 /* Utilis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilis.swift; sourceTree = "<group>"; };
 		83CA1B5025758BE200E748F8 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -275,7 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				83C9834725789A3B00172712 /* PhotosMapView.swift */,
-				83C98324257898D800172712 /* CustomMapAnnotation.swift */,
+				83C98324257898D800172712 /* CustomAnnotationView.swift */,
 			);
 			path = "flickr map view";
 			sourceTree = "<group>";
@@ -604,7 +604,7 @@
 				8396BDD625754F6500788134 /* FlickriFyApp.swift in Sources */,
 				83C9834825789A3B00172712 /* PhotosMapView.swift in Sources */,
 				83CA1B59257598D800E748F8 /* Alert.swift in Sources */,
-				83C98325257898D800172712 /* CustomMapAnnotation.swift in Sources */,
+				83C98325257898D800172712 /* CustomAnnotationView.swift in Sources */,
 				83C9831225788B0500172712 /* FirebaseManager.swift in Sources */,
 				83AF7B0F2577367000860279 /* FlickrListView.swift in Sources */,
 				83CA1B862576204900E748F8 /* PhotoCellView.swift in Sources */,

@@ -14,11 +14,14 @@ struct HomeView: View {
     @StateObject var viewModel = PhotosViewModel()
     @State private var isPopupOpen: Bool = false
     var body: some View {
+        // main tabView
         TabView {
+            // tabBar item 0
             FlickrListView(viewModel: viewModel)
                 .tabItem {
                     Text("List")
                     Image(systemName: "list.bullet")}
+            // tabBar item 1
             PhotosMapView(viewModel: viewModel)
                 .tabItem {
                     Text("Map")
@@ -27,12 +30,22 @@ struct HomeView: View {
 
         }.accentColor(.white)
         
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
+            
+        }
+        
+        // popUp view : when user taps on the bar , it displays favorites
         .popup(isBarPresented: .constant(true), isPopupOpen: $isPopupOpen) {
             FavoritePhotosView()
         }
+        // tabBar modifiers
         .popupInteractionStyle(.drag)
         .popupBarCustomView(wantsDefaultTapGesture: true, wantsDefaultPanGesture: true,
                             wantsDefaultHighlightGesture: false) {
+            // displays message in the tabBar
             VStack(spacing: 12){
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 60, height: 5)
