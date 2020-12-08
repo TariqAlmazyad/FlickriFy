@@ -82,7 +82,7 @@ struct FlickrListView: View {
 
 struct FlickrListView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        TabBarHomeView()
     }
 }
 

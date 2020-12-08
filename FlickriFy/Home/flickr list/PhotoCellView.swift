@@ -35,7 +35,7 @@ struct PhotoCellView: View {
 
 struct PhotoCellView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        TabBarHomeView()
     }
 }
 
@@ -66,7 +66,7 @@ struct PhotoInformationView: View {
         }
     }
     
-    private func getDistance(_ lat: String, _ long: String) -> Double {
+    fileprivate func getDistance(_ lat: String, _ long: String) -> Double {
         let coordinate = CLLocation(latitude: Double(lat)!, longitude: Double(long)!)
         let currentLocation = CLLocation(latitude: LocationManager.location.latitude,
                                          longitude: LocationManager.location.latitude)

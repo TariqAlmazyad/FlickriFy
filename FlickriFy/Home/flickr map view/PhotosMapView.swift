@@ -43,7 +43,7 @@ struct PhotosMapView: View {
 
 struct PhotosMapView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        TabBarHomeView()
             .preferredColorScheme(.dark)
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 import LNPopupUI
 
-struct HomeView: View {
+struct TabBarHomeView: View {
     
     @StateObject var viewModel = PhotosViewModel()
     @State private var isPopupOpen: Bool = false
@@ -66,7 +66,7 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        TabBarHomeView()
             .preferredColorScheme(.dark)
     }
 }

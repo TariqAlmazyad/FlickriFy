@@ -12,10 +12,12 @@ import LoremSwiftum
 struct PhotoDetailView: View {
     let photo: Photo
     @State var isFavorite: Bool = false
-    @Binding var rating: Double 
+    @Binding var rating: Double
+    let screen = UIScreen.main.bounds
     var body: some View {
         ZStack(alignment: .bottom){
             FlickrFyRemoteImage(urlString: "\(photo.url_z)")
+                .frame(maxWidth: screen.width)
                 .scaledToFill()
                 .clipped()
                 .ignoresSafeArea()

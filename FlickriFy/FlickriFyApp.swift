@@ -35,7 +35,7 @@ struct FlickriFyApp: App {
     var body: some Scene {
         WindowGroup {
             RootView{
-                HomeView()
+                TabBarHomeView()
                     .preferredColorScheme(.dark)
             }
         }

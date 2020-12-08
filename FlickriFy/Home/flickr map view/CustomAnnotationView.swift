@@ -43,7 +43,7 @@ struct CustomAnnotationView: View {
 }
 struct CustomAnnotationView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        TabBarHomeView()
             .preferredColorScheme(.dark)
     }
 }
